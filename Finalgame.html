@@ -1,0 +1,634 @@
+﻿<HTML>
+<HEAD>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <TITLE>TEST.com</TITLE>
+    <STYLE text='type/css'>
+
+        canvas {
+            border: 1px solid #d3d3d3;
+            background-color: #f1f1f1;
+            z-index: 3;
+            display: inline;
+        }
+
+        #canvas-container {
+            text-align: center;
+        }
+
+        th.a {
+            font-family: avenir;
+            font-size: 25px;
+        }
+
+        #titletext {
+            font-family: avenir;
+            position: absolute;
+            text-align: center;
+            top: 70%;
+            z-index: 2;
+            font-size: 50px;
+        }
+
+        body {
+            align-items: center;
+            display: flex;
+            height: 100vh;
+            ` justify-content: center;
+            overflow-x: hidden;
+        }
+
+        a {
+            border-bottom: 1px solid #000000;
+            color: #000000;
+            padding-bottom: .25em;
+            text-decoration: none;
+            position: relative;
+        }
+
+
+        #box1 {
+            width: 10%;
+            height: 30%;
+            background-color: #5c827e;
+            position: absolute;
+            left: 25%;
+            top: 70%;
+            z-index: 4;
+        }
+
+        #box4 {
+            width: 10%;
+            height: 30%;
+            background-color: #5c827e;
+            position: absolute;
+            left: 25%;
+            top: 70%;
+            z-index: 4;
+        }
+
+        #box2 {
+            width: 10%;
+            height: 30%;
+            background-color: #5c827e;
+            position: absolute;
+            left: 60%;
+            top: 140%;
+            z-index: 4;
+        }
+
+        #image1 {
+            width: 40%;
+            height: 40%;
+            position: absolute;
+            left: 30%;
+            top: 80%;
+            z-index: 2;
+        }
+
+        #boxtext1 {
+            font-family: colonna MT;
+            font-size: 34px;
+            z-index: 4;
+            text-align: center;
+            color: #000000;
+        }
+
+        #boxtext2 {
+            font-family: colonna MT;
+            font-size: 34px;
+            z-index: 4;
+            text-align: center;
+            color: #000000;
+        }
+
+        #image2 {
+            width: 50%;
+            height: 50%;
+            position: absolute;
+            left: 65%;
+            top: 145%;
+            z-index: 2;
+        }
+
+        table.a {
+            position: fixed;
+            top: 10;
+            z-index: 4
+        }
+
+        #down {
+            position: absolute;
+            top: 80;
+            left: 29.5%;
+            z-index: 2
+        }
+
+        #bottombox {
+            background-color: white;
+            position: absolute;
+            width: 100%;
+            z-index: -3;
+            top: 200%;
+            height: 40%;
+        }
+
+        #banner {
+            top: 65%;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+        }
+
+        #bannertext {
+            position: fixed;
+            z-index: -1;
+            top: 96.5%;
+            left: 83.5%;
+            font-family: avenir;
+        }
+
+        #bgbox {
+            background-color: white;
+            position: absolute;
+            width: 100%;
+            z-index: 0;
+            height: 300%;
+            left: 0.1%;
+        }
+
+        #bgbox2 {
+            background-color: white;
+            position: fixed;
+            width: 100%;
+            z-index: 3;
+            height: 10%;
+            left: 0.1%;
+            top: 0
+        }
+
+        #bgbox3 {
+            background-color: grey;
+            position: fixed;
+            width: 100%;
+            z-index: 3;
+            height: 0.5%;
+            left: 0.1%;
+            top: 10%;
+        }
+
+        #gamebutton {
+            position: relative;
+            z-index: 4;
+            top: 50%;
+        }
+        #infotext {
+            position: relative;
+            z-index: 4;
+            top: 1%;
+        }
+        input.text {
+            position: relative;
+            z-index: 7;
+            top: 50%;
+        }
+
+        table.b {
+            border-width: 1.5px;
+            border-style: solid;
+            padding: 0 10px;
+        }
+    </STYLE>
+</HEAD>
+<BODY onload="startGame()">
+    <TABLE class='a' position='fixed' border='0' width='100%'>
+        <TR height='20%'>
+            <TH class='a'><a>TEST</a></TH>
+            <TH class='a'><a>TEST</a></TH>
+            <TH class='a'><a>TEST</a></TH>
+            <TH class='a'><a>TEST</a></TH>
+        </TR>
+    </TABLE>
+    <p id="infotext">make the electron stop moving by entering the correct mass value (mev/c^2) in the text box, and pressing the [try it] button. If you enter the wrong answer, the electron will be invisible until the corect answer is entered. </p>
+    <script>
+
+
+
+        var myphoton;
+
+
+        function startGame() {
+            myGameArea.start();
+            myphoton = new component(30, "shown", 30, "red", 10, 120);
+            myproton = new component(30, "shown", 30, "blue", 10, 120);
+            myneutron = new component(30, "shown", 30, "green", 10, 120);
+            myelectron = new component(30, "shown", 30, "yellow", 10, 120);
+            myup = new component(30, 30, "shown", "gray", 10, 120);
+            mydown = new component(30, "shown", 30, "black", 10, 120);
+            mygluon = new component(30, "shown", 30, "purple", 10, 120);
+            myWbosonplus = new component(30, "shown", 30, "pink", 10, 120);
+            myWbosonminus = new component(30, "shown", 30, "orange", 10, 120);
+            myzboson = new component(30, "shown", 30, "AliceBlue", 10, 120);
+            myhiggs = new component(30, "shown", 30, "AntiqueWhite", 10, 120);
+            mystrange = new component(30, "shown", 30, "Aqua", 10, 120);
+            mycharm = new component(30, "shown", 30, "Aquamarine", 10, 120);
+            mytop = new component(30, "shown", 30, "Azure", 10, 120);
+            mybottom = new component(30, "shown", 30, "Beige", 10, 120);
+            mytauon = new component(30, "shown", 30, "Bisque", 10, 120);
+            mymuon = new component(30, "shown", 30, "BlanchedAlmond", 10, 120);
+            myelectronneutrino = new component(30, "shown", 30, "BlueViolet", 10, 120);
+            mymuneutrino = new component(30, "shown", 30, "Brown", 10, 120);
+            mytauneutrino = new component(30, "shown", 30, "CadetBlue", 10, 120);
+
+        }
+
+        //5995849
+        var mymuonvelocity = 1200;
+
+        function speeddownmymuon() {
+            mymuonvelocity -= 1;
+        }
+
+        function speedupmymuon() {
+            mymuonvelocity += 1;
+        }
+        var myelectronneutrinovelocity = 1200;
+
+        function speeddownmyelectronneutrino() {
+            myelectronneutrinovelocity -= 1;
+        }
+
+        function speedupmyelectronneutrino() {
+            myelectronneutrinovelocity += 1;
+        }
+        var mymuneutrinovelocity = 1200;
+
+        function speeddownmymuneutrino() {
+            mymuneutrinovelocity -= 1;
+        }
+
+        function speedupmymuneutrino() {
+            mymuneutrinovelocity += 1;
+        }
+        var mytauneutrinovelocity = 1200;
+
+        function speeddownmytauneutrino() {
+            mytauneutrinovelocity -= 1;
+        }
+
+        function speedupmytauneutrino() {
+            mytauneutrinovelocity += 1;
+        }
+        var mytauonvelocity = 1200;
+
+        function speeddownmytauon() {
+            mytauonvelocity -= 1;
+        }
+
+        function speedupmytauon() {
+            mytauonvelocity += 1;
+        }
+        var mybottomvelocity = 1200;
+
+        function speeddownmybottom() {
+            mybottomvelocity -= 1;
+        }
+
+        function speedupmybottom() {
+            mybottomvelocity += 1;
+        }
+        var mytopvelocity = 1200;
+
+        function speeddownmytop() {
+            mytopvelocity -= 1;
+        }
+
+        function speedupmytop() {
+            mytopvelocity += 1;
+        }
+        var mycharmvelocity = 1200;
+
+        function speeddownmycharm() {
+            mycharmvelocity -= 1;
+        }
+
+        function speedupmycharm() {
+            mycharmvelocity += 1;
+        }
+        var mystrangevelocity = 1200;
+
+        function speeddownmystrange() {
+            mystrangevelocity -= 1;
+        }
+
+        function speedupmystrange() {
+            mystrangevelocity += 1;
+        }
+        var myhiggsvelocity = 1200;
+
+        function speeddownmyhiggs() {
+            myhiggsvelocity -= 1;
+        }
+
+        function speedupmyhiggs() {
+            myhiggsvelocity += 1;
+        }
+        var myzbosonvelocity = 1200;
+
+        function speeddownmyzboson() {
+            myzbosonvelocity -= 1;
+        }
+
+        function speedupmyzboson() {
+            myzbosonvelocity += 1;
+        }
+        var myWbosonminusvelocity = 1200;
+
+        function speeddownmyWbosonminus() {
+            myWbosonminusvelocity -= 1;
+        }
+
+        function speedupmyWbosonminus() {
+            myWbosonminusvelocity += 1;
+        }
+        var myWbosonplusvelocity = 1200;
+
+        function speeddownmyWbosonplus() {
+            myWbosonplusvelocity -= 1;
+        }
+        function speedupmyWbosonplus() {
+            myWbosonplusvelocity += 1;
+        }
+        var photonvelocity = 1200;
+
+        function speeddown() {
+            photonvelocity -= 1;
+        }
+
+        function speedup() {
+            photonvelocity += 1;
+        }
+
+        var protonvelocity = 1200;
+
+        function speeddownproton() {
+            protonvelocity -= 1;
+        }
+
+        function speedupproton() {
+            protonvelocity += 1;
+        }
+        var neutronvelocity = 1200;
+
+        function speeddownneutron() {
+            neutronvelocity -= 1;
+        }
+
+        function speedupneutron() {
+            neutronvelocity += 1;
+        }
+
+        var electronvelocity = 0.511;
+
+        function speedupelectron() {
+            electronvelocity += 1;
+        }
+
+        function speeddownelectron() {
+            electronvelocity -= 1;
+        }
+
+        var upvelocity = 1200;
+
+        function speedupup() {
+            upvelocity += 1;
+        }
+
+        function speeddownup() {
+            upvelocity -= 1;
+        }
+        var downvelocity = 1200;
+
+        function speedupdown() {
+            downvelocity += 1;
+        }
+
+        function speeddowndown() {
+            downvelocity -= 1;
+        }
+
+        var gluonvelocity = 1200;
+
+        function speedupgluon() {
+            gluonvelocity -= 1;
+        }
+
+        function speedupgluon() {
+            gluonvelocity += 1;
+        }
+        var myGameArea = {
+            canvas: document.createElement("canvas"),
+            start: function () {
+                this.canvas.width = 1200;
+                this.canvas.height = 500;
+                this.context = this.canvas.getContext("2d");
+                document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+                this.interval = setInterval(updateGameArea, 20);
+
+            },
+            clear: function () {
+                this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            }
+        }
+
+        function component(width, visibility, height, color, x, y) {
+            this.width = width;
+            this.height = height;
+            this.x = x;
+            this.y = y;
+            this.visibility = visibility;
+            this.update = function () {
+                ctx = myGameArea.context;
+                ctx.fillStyle = color;
+                ctx.fillRect(this.x, this.y, this.width, this.height);
+            }
+        }
+
+        var textenter
+
+        function updateGameArea() {
+            myGameArea.clear();
+
+            if (myphoton.x > 1200)
+                myphoton.x = 0;
+            myphoton.x += photonvelocity;
+            if (photonvelocity < 0) { photonvelocity += 1 }
+            myphoton.update();
+            if (myproton.x > 1200)
+                myproton.x = 0;
+            myproton.x += protonvelocity;
+            if (protonvelocity < 0) { protonvelocity += 1 }
+            myproton.update();
+            if (myneutron.x > 1200)
+                myneutron.x = 0;
+            myneutron.x += neutronvelocity;
+            if (neutronvelocity < 0) { neutronvelocity += 1 }
+            myneutron.update();
+            if (myelectron.x > 1200)
+                myelectron.x = 0;
+            myelectron.x += electronvelocity;
+            if (electronvelocity < 0) { electronvelocity += 1 }
+            myelectron.update();
+            if (myup.x > 1200)
+                myup.x = 0;
+            myup.x += upvelocity;
+            if (upvelocity < 0) { upvelocity += 1 }
+            myup.update();
+            if (mydown.x > 1200)
+                mydown.x = 0;
+            mydown.x += downvelocity;
+            if (downvelocity < 0) { downvelocity += 1 }
+            mydown.update();
+            if (mygluon.x > 1200)
+                mygluon.x = 0;
+            mygluon.x += gluonvelocity;
+            if (gluonvelocity < 0) { gluonvelocity += 1 }
+            mygluon.update();
+            if (myWbosonplus.x > 1200)
+                myWbosonplus.x = 0;
+            myWbosonplus.x += myWbosonplusvelocity;
+            if (myWbosonplusvelocity < 0) { myWbosonplusvelocity += 1 }
+            myWbosonplus.update();
+            if (myWbosonminus.x > 1200)
+                myWbosonminus.x = 0;
+            myWbosonminus.x += myWbosonminusvelocity;
+            if (myWbosonminusvelocity < 0) { myWbosonminusvelocity += 1 }
+            myWbosonminus.update();
+            if (myzboson.x > 1200)
+                myzboson.x = 0;
+            myzboson.x += myzbosonvelocity;
+            if (myzbosonvelocity < 0) { myzbosonvelocity += 1 }
+            myzboson.update();
+            if (myhiggs.x > 1200)
+                myhiggs.x = 0;
+            myhiggs.x += myhiggsvelocity;
+            if (myhiggsvelocity < 0) { myhiggsvelocity += 1 }
+            myhiggs.update();
+            if (mystrange.x > 1200)
+                mystrange.x = 0;
+            mystrange.x += mystrangevelocity;
+            if (mystrangevelocity < 0) { mystrangevelocity += 1 }
+            mystrange.update();
+            if (mycharm.x > 1200)
+                mycharm.x = 0;
+            mycharm.x += mycharmvelocity;
+            if (mycharmvelocity < 0) { mycharmvelocity += 1 }
+            mycharm.update();
+            if (mytop.x > 1200)
+                mytop.x = 0;
+            mytop.x += mytopvelocity;
+            if (mytopvelocity < 0) { mytopvelocity += 1 }
+            mytop.update();
+            if (mybottom.x > 1200)
+                mybottom.x = 0;
+            mybottom.x += mybottomvelocity;
+            if (mybottomvelocity < 0) { mybottomvelocity += 1 }
+            mybottom.update();
+            if (mytauon.x > 1200)
+                mytauon.x = 0;
+            mytauon.x += mytauonvelocity;
+            if (mytauonvelocity < 0) { mytauonvelocity += 1 }
+            mytauon.update();
+            if (mymuon.x > 1200)
+                mymuon.x = 0;
+            mymuon.x += mymuonvelocity;
+            if (mymuonvelocity < 0) { mymuonvelocity += 1 }
+            mymuon.update();
+            if (myelectronneutrino.x > 1200)
+                myelectronneutrino.x = 0;
+            myelectronneutrino.x += myelectronneutrinovelocity;
+            if (myelectronneutrinovelocity < 0) { myelectronneutrinovelocity += 1 }
+            myelectronneutrino.update();
+            if (mymuneutrino.x > 1200)
+                mymuneutrino.x = 0;
+            mymuneutrino.x += mymuneutrinovelocity;
+            if (mymuneutrinovelocity < 0) { mymuneutrinovelocity += 1 }
+            mymuneutrino.update();
+            if (mytauneutrino.x > 1200)
+                mytauneutrino.x = 0;
+            mytauneutrino.x += mytauneutrinovelocity;
+            if (mytauneutrinovelocity < 0) { mytauneutrinovelocity += 1 }
+            mytauneutrino.update();
+          
+        }
+
+        function shown() {
+            console.log("hey");
+            if (electronvelocity == 0.511) {
+                electronvelocity = 0;
+            }
+
+            
+            else {
+                electronvelocity = 1200;
+            }
+        }
+        function myinputfunction() {
+            electronvelocity = parseFloat(document.getElementById("myInput").value, 10);
+            console.log(electronvelocity);
+        }
+
+    </script>
+
+    <div id="canvas-container">
+        <input class="text" type="text" id="myInput" oninput="myinputfunction()">
+
+        <button id='gamebutton' onclick="shown()">Try it</button>
+        <!--<button id='gamebutton' onclick="speedup()">SPEED UP γ</button>
+        <button id='gamebutton' onclick="speeddown()">SPEED DOWN γ</button>
+        <button id='gamebutton' onclick="speedupproton()">SPEED UP <i>P</i></button>
+        <button id='gamebutton' onclick="speeddownproton()">SPEED DOWN <i>P</i></button>
+        <button id='gamebutton' onclick="speedupneutron()">SPEED UP <i>N</i></button>
+        <button id='gamebutton' onclick="speeddownneutron()">SPEED DOWN <i>N</i></button>
+        <button id='gamebutton' onclick="speedupelectron()">SPEED UP <i>e</i></button>
+        <button id='gamebutton' onclick="speeddownelectron()">SPEED DOWN <i>e</i></button>
+        <button id='gamebutton' onclick="speedupup()">SPEED UP <i>u</i></button>
+        <button id='gamebutton' onclick="speeddownup()">SPEED DOWN <i>u</i></button>
+        <button id='gamebutton' onclick="speedupdown()">SPEED UP <i>d</i></button>
+        <button id='gamebutton' onclick="speeddowndown()">SPEED DOWN <i>d</i></button>
+        <button id='gamebutton' onclick="speedupgluon()">SPEED UP <i>g</i></button>
+        <button id='gamebutton' onclick="speeddowngluon()">SPEED DOWN <i>g</i></button>
+        <button id='gamebutton' onclick="speedupmyWbosonplus()">SPEED UP γ</button>
+        <button id='gamebutton' onclick="speeddownmyWbosonplus()">SPEED DOWN γ</button>
+        <button id='gamebutton' onclick="speedupmyWbosonminus()">SPEED UP γ</button>
+        <button id='gamebutton' onclick="speeddownmyWbosonminus()">SPEED DOWN γ</button>
+        <button id='gamebutton' onclick="speedupmyzboson()">SPEED UP γ</button>
+        <button id='gamebutton' onclick="speeddownmyzboson()">SPEED DOWN γ</button>
+        <button id='gamebutton' onclick="speedupmyhiggs()">SPEED UP γ</button>
+        <button id='gamebutton' onclick="speeddownmyhiggs()">SPEED DOWN γ</button>
+        <button id='gamebutton' onclick="speedupmystrange()">SPEED UP γ</button>
+        <button id='gamebutton' onclick="speeddownmystrange()">SPEED DOWN γ</button>
+        <button id='gamebutton' onclick="speedupmycharm()">SPEED UP γ</button>
+        <button id='gamebutton' onclick="speeddownmycharm()">SPEED DOWN γ</button>
+        <button id='gamebutton' onclick="speedupmytop()">SPEED UP γ</button>
+        <button id='gamebutton' onclick="speeddownmytop()">SPEED DOWN γ</button>
+        <button id='gamebutton' onclick="speedupmybottom()">SPEED UP γ</button>
+        <button id='gamebutton' onclick="speeddownmybottom()">SPEED DOWN γ</button>
+        <button id='gamebutton' onclick="speedupmytauon()">SPEED UP γ</button>
+        <button id='gamebutton' onclick="speeddownmytauon()">SPEED DOWN γ</button>
+        <button id='gamebutton' onclick="speedupmymuon()">SPEED UP γ</button>
+        <button id='gamebutton' onclick="speeddownmymuon()">SPEED DOWN γ</button>
+        <button id='gamebutton' onclick="speedupmyelectronneutrino()">SPEED UP γ</button>
+        <button id='gamebutton' onclick="speeddownmyelectronneutrino()">SPEED DOWN γ</button>
+        <button id='gamebutton' onclick="speedupmymuneutrino()">SPEED UP γ</button>
+        <button id='gamebutton' onclick="speeddownmymuneutrino()">SPEED DOWN γ</button>
+        <button id='gamebutton' onclick="speedupmytauneutrino()">SPEED UP γ</button>
+        <button id='gamebutton' onclick="speeddownmytauneutrino()">SPEED DOWN γ</button>-->
+    </div>
+    <DIV id='bottombox'></DIV>
+    <DIV id='banner'><IMG width='100%' height='40%' src="banner5.jpg"></DIV>
+    <DIV id='bannertext'>Website made by Loren Meehan</DIV>
+    <DIV id='bgbox'></DIV>
+    <DIV id='bgbox2'></DIV>
+    <DIV id='bgbox3'></DIV>
+</HTML>
